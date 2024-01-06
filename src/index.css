@@ -1,0 +1,270 @@
+body {
+	background-image: url("./img/snowman.jpeg");
+	background-size: cover;
+	background-position: center;
+}
+
+body::after {
+	content: "";
+	background-color: black;
+	opacity: 0.53;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/* 폰트 적용 */
+@font-face {
+	font-family: "Dovemayo_gothic";
+	src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2")
+		format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "KCCChassam";
+	src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCCChassam.woff2")
+		format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.date-num {
+	color: white;
+	font-size: 18;
+	font-family: "Dovemayo_gothic";
+	display: block;
+	padding: 6;
+}
+
+.title {
+	color: white;
+	font-size: 28;
+	padding-top: 3vh;
+	padding-bottom: 3vh;
+	font-family: "Dovemayo_gothic";
+	letter-spacing: 4px;
+}
+
+.christmas {
+	font-family: "Dovemayo_gothic";
+	font-size: 14;
+	color: black;
+}
+
+/* 그리드 설계 */
+.grid-1 {
+	display: grid;
+	width: 85vw;
+	max-width: 800px;
+	margin: 0 auto;
+	z-index: 1;
+	height: 65vh;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: auto;
+	grid-gap: 20px;
+	padding: 5%;
+
+	grid-template-areas:
+		"d15 d16 d17"
+		"d18 d19 d20"
+		"d21 d22 d23"
+		"d24 d25 d25";
+}
+
+/* 그리드 내부 모든 요소에 적용 */
+.grid-1 > * {
+	height: 110;
+	border: 1px solid white;
+	border-radius: 5px;
+}
+
+/* 최상단 날짜 카운트 영역 */
+.title {
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+	grid-area: t;
+}
+
+/* 그리드 별 스타일링*/
+
+.day-12 {
+	grid-area: d12;
+}
+
+.day-13 {
+	grid-area: d13;
+}
+
+.day-14 {
+	grid-area: d14;
+}
+
+.day-15 {
+	grid-area: d15;
+}
+
+.day-16 {
+	grid-area: d16;
+}
+
+.day-17 {
+	grid-area: d17;
+}
+
+.day-18 {
+	grid-area: d18;
+}
+
+.day-19 {
+	grid-area: d19;
+}
+
+.day-20 {
+	grid-area: d20;
+}
+
+.day-21 {
+	grid-area: d21;
+}
+
+.day-22 {
+	grid-area: d22;
+}
+
+.day-23 {
+	grid-area: d23;
+}
+
+.day-24 {
+	grid-area: d24;
+}
+
+.day-25 {
+	grid-area: d25;
+}
+
+.grid-1 input {
+	display: none;
+}
+
+label {
+	perspective: 1000px;
+	transform-style: preserve-3d;
+	display: flex;
+	min-height: 100%;
+	width: 100%;
+	height: 50%;
+}
+
+/* 확대 및 회전 애니메이션 */
+@keyframes zoomAndRotate {
+	from {
+		transform: scale(0) rotateY(0deg);
+	}
+	to {
+		transform: scale(1) rotateY(360deg);
+	}
+}
+
+/* 애니메이션 적용 */
+.zoomIn {
+	animation: zoomAndRotate 0.5s ease forwards;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.modal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	flex-direction: column;
+	top: 53%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1000;
+}
+
+.modal-content {
+	width: 350px;
+	height: 400px;
+	padding: 30 0 0 0;
+	background-color: white;
+	background-size: cover;
+	border-radius: 10px;
+	text-align: center;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+}
+
+/* 모달 내부 이미지 영역 */
+.mainImage {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-position: bottom;
+	flex-grow: 1;
+	margin-bottom: 10;
+}
+/* 모달 내부 텍스트 영역 */
+.modal-content p {
+	font-family: "Dovemayo_gothic";
+	color: black;
+	font-size: 16;
+	word-break: keep-all;
+	margin-top: 0;
+}
+
+.subImage {
+	width: 100%;
+	height: 40%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+.icon {
+	font-size: 35;
+	position: absolute;
+	left: 30%;
+	top: 32%;
+	margin: 0 auto;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	z-index: 999;
+}
+
+/* 25일 카드 디자인 */
+.dDay {
+	display: block;
+	color: white;
+	font-family: "KCCChassam";
+	font-size: 20;
+	position: absolute;
+	top: 27%;
+	right: 6%;
+	letter-spacing: 1px;
+}
