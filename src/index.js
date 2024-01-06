@@ -2,7 +2,7 @@ import { modalMessageList } from "./message.js";
 
 const getCurrentDate = () => {
 	return new Date(
-		new Date("2023-12-25").toLocaleString("en-US", { timeZone: "Asia/Seoul" })
+		new Date("2023-12-17").toLocaleString("en-US", { timeZone: "Asia/Seoul" })
 	);
 };
 
