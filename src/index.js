@@ -101,7 +101,7 @@ function updateCountdown() {
 	const countdownElement = document.getElementById("countdown");
 	countdownElement.style.color = "white";
 
-	if (days === 0) {
+	if (days <= 0) {
 		countdownElement.innerHTML = `
     <span>MERRY CHRISTMAS!</span>`;
 		const title = document.getElementById("mainTitle");
